@@ -3,47 +3,69 @@ h1 {
   color: white;
   font-size: 50;
 }
+
 h2 {
   color: blue;
   font-size: 30;
   text-align: left;
 }
+
 h1, h2 {
   background-color: red;
 
 }
 
- h3 {
+h3 {
   text-align: right;
   background-color: grey;
 
 }
 
-img {
-    height: 1000px;
-    width: 2000px;
-    }
-#image-1 img,
-#image-2 img,
-#image-3 img {
-  background-color: #00f;
-  vertical-align: right;
-  height: 400px;
-  width: 400;
+.image-grid {
+  --gap: 20px;
+  --num-cols: 4;
+  --row-height: 300px;
 
+  box-sizing: border-box;
+  padding: var(--gap);
+
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: var(--gap);
 }
-.image-1,
-.image-2,
-.image-3 {
-  height: 400px;
-  width: 400;
-  display: inline-flex;
+
+.image-grid > img {
+  width: 50%;
+  height: 50%;
+  flex-wrap: : auto;
 }
-.Wrapper {
-  vertical-align: right;
-  display: vertical;
+
+.image-grid-col-2 {
+  grid-column: span 3;
 }
+
+.image-grid-row-2 {
+  grid-row: span 3;
+}
+
+.image-grid-col-1 {
+  grid-column: span 1;
+}
+.image-grid-row-1 {
+  grid-row: span 1;
+}
+
+/* Anything udner 1024px */
+@media screen and (max-width: 1024px) {
+  .image-grid {
+    --num-cols: 2;
+    --row-height: 200px;
+  }
+}
+
 
 h4 {
-    font-size: 45;
+  position: relative;
+    font-size: 22;
   }
